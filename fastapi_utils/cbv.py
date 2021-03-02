@@ -45,8 +45,7 @@ def _cbv(router: APIRouter, cls: Type[T]) -> Type[T]:
     for route in cbv_routes:
         router.routes.remove(route)
         _update_cbv_route_endpoint_signature(cls, route)
-        cbv_router.routes.append(route)
-    router.include_router(cbv_router)
+        router.routes.append(route)
     return cls
 
 
